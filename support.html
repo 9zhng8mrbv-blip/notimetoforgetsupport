@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Time to Forget — Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #F5EDE4;
+            --cream-dark: #E8DFD3;
+            --sage: #8B9D77;
+            --sage-light: #A8B896;
+            --tan: #A68B6B;
+            --rose: #C4918E;
+            --slate: #9EAAB4;
+            --lavender: #B39BC8;
+            --text-primary: #4A3F35;
+            --text-secondary: #A68B6B;
+            --text-muted: #B8A998;
+            --white-soft: rgba(255,255,255,0.7);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-primary);
+            background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 50%, var(--cream) 100%);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .grain {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none; z-index: 999;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 0 48px;
+        }
+
+        .hero-icon {
+            font-size: 56px;
+            margin-bottom: 16px;
+            display: block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(28px, 5vw, 40px);
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        /* Nav pills */
+        .nav-pills {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .nav-pill {
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--text-muted);
+            background: var(--white-soft);
+            transition: all 0.25s ease;
+            border: 1.5px solid transparent;
+        }
+
+        .nav-pill:hover {
+            color: var(--sage);
+            border-color: var(--sage);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(139,157,119,0.15);
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .card {
+            background: var(--white-soft);
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            backdrop-filter: blur(10px);
+        }
+
+        /* FAQ */
+        .faq-item {
+            border-bottom: 1px solid rgba(74,63,53,0.06);
+            padding: 18px 0;
+        }
+
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item:first-child { padding-top: 0; }
+
+        .faq-q {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .faq-q::before {
+            content: '🌿';
+            flex-shrink: 0;
+            font-size: 14px;
+        }
+
+        .faq-a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            line-height: 1.65;
+            margin-left: 28px;
+        }
+
+        /* Feature tags */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .feature-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 14px;
+            background: var(--white-soft);
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            border-left: 3px solid var(--sage);
+        }
+
+        .feature-tag.rose { border-left-color: var(--rose); }
+        .feature-tag.lavender { border-left-color: var(--lavender); }
+        .feature-tag.tan { border-left-color: var(--tan); }
+        .feature-tag.slate { border-left-color: var(--slate); }
+
+        .feature-tag span { font-size: 16px; }
+
+        /* Contact */
+        .contact-card {
+            text-align: center;
+            padding: 32px 24px;
+        }
+
+        .contact-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--sage), var(--sage-light));
+            color: white;
+            text-decoration: none;
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 700;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 16px rgba(139,157,119,0.3);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(139,157,119,0.4);
+        }
+
+        /* Privacy */
+        .privacy-section { margin-top: 8px; }
+
+        .privacy-section h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .privacy-section p {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 14px;
+        }
+
+        .privacy-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .privacy-list li {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            line-height: 1.7;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 6px;
+        }
+
+        .privacy-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--sage);
+            font-weight: 700;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 48px 0 32px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .footer span { color: var(--sage); }
+
+        @media (max-width: 520px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .hero { padding: 56px 0 36px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero">
+            <span class="hero-icon">🌱</span>
+            <h1>No Time to Forget</h1>
+            <p>Support & Help Center</p>
+        </div>
+
+        <!-- Nav -->
+        <div class="nav-pills">
+            <a href="#faq" class="nav-pill">FAQ</a>
+            <a href="#features" class="nav-pill">Features</a>
+            <a href="#contact" class="nav-pill">Contact</a>
+            <a href="#privacy" class="nav-pill">Privacy</a>
+        </div>
+
+        <!-- FAQ -->
+        <div class="section" id="faq">
+            <div class="section-label">Frequently Asked Questions</div>
+            <div class="card">
+                <div class="faq-item">
+                    <div class="faq-q">What's the difference between To-Do List and What's Due?</div>
+                    <div class="faq-a"><strong>To-Do List</strong> tasks remind you a set time after you create them — perfect for things you need a nudge about. <strong>What's Due</strong> tasks have a specific deadline, and you can set multiple advance reminders before the due date.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How do I connect Google or Microsoft calendars?</div>
+                    <div class="faq-a">Go to your iPhone's <strong>Settings → Calendar → Accounts → Add Account</strong>, then sign in with Google or Microsoft. Once added, return to the app's Calendar tab and your events will appear automatically. You can then import any event as a task with one tap.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How do repeating tasks work?</div>
+                    <div class="faq-a">When you mark a repeating task as done, it stays completed for the rest of the day. The next morning, it automatically resets as a fresh active task with the date advanced by your chosen interval (daily, weekly, monthly, quarterly, every 6 months, or annually).</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Can I break a task into smaller steps?</div>
+                    <div class="faq-a">Yes! Every task can have subtasks. Add them when creating a task, or tap the steps chip on any card to expand it and add more. When all subtasks are checked off, the parent task completes automatically.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">How do medicine reminders work?</div>
+                    <div class="faq-a">Add a medicine with its dosage, frequency, and schedule times. You'll receive push notifications at each dose time. You can also set a refill date and the app will remind you 3 days before you run out.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">I'm not receiving notifications. What should I do?</div>
+                    <div class="faq-a">Go to <strong>Settings → Notifications → No Time to Forget</strong> on your iPhone and make sure notifications are enabled with banners, sounds, and badges turned on. Also check that Do Not Disturb or Focus modes aren't silencing alerts.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Is my data stored in the cloud?</div>
+                    <div class="faq-a">No. All your tasks, medicines, and settings are stored locally on your device. Nothing is uploaded to any server. Your data stays entirely on your phone.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="section" id="features">
+            <div class="section-label">What You Can Do</div>
+            <div class="features-grid">
+                <div class="feature-tag"><span>📋</span> To-Do List tasks</div>
+                <div class="feature-tag rose"><span>📌</span> What's Due deadlines</div>
+                <div class="feature-tag tan"><span>⏰</span> Smart reminders</div>
+                <div class="feature-tag"><span>🔁</span> Repeating tasks</div>
+                <div class="feature-tag lavender"><span>💊</span> Medicine tracking</div>
+                <div class="feature-tag slate"><span>📅</span> Calendar sync</div>
+                <div class="feature-tag rose"><span>📥</span> Event import</div>
+                <div class="feature-tag tan"><span>✏️</span> Edit any task</div>
+            </div>
+        </div>
+
+        <!-- Contact -->
+        <div class="section" id="contact">
+            <div class="section-label">Need Help?</div>
+            <div class="card contact-card">
+                <h3>We're here for you</h3>
+                <p>Can't find your answer above? Send us an email and we'll get back to you as soon as possible — usually within 24 hours.</p>
+                <a href="mailto:jmcninch.22@gmail.com?subject=No%20Time%20to%20Forget%20Support" class="contact-btn">
+                    ✉️ Email Support
+                </a>
+            </div>
+        </div>
+
+        <!-- Privacy -->
+        <div class="section" id="privacy">
+            <div class="section-label">Privacy Policy</div>
+            <div class="card privacy-section">
+                <h3>Your privacy matters</h3>
+                <p>No Time to Forget is designed with your privacy at its core. Here's the simple version:</p>
+                <ul class="privacy-list">
+                    <li>All data is stored locally on your device</li>
+                    <li>We do not collect any personal information</li>
+                    <li>We do not use analytics or tracking</li>
+                    <li>We do not share data with third parties</li>
+                    <li>No account or sign-in is required</li>
+                    <li>Calendar access is read-only and stays on-device</li>
+                    <li>Notifications are scheduled locally, not through external servers</li>
+                </ul>
+                <p>The app requests only two system permissions: <strong>Calendar access</strong> (to display and import your events) and <strong>Notification access</strong> (to send local reminders). Both are optional and can be revoked at any time in your iPhone's Settings.</p>
+                <p>If you delete the app, all data is permanently removed from your device.</p>
+                <p style="margin-top: 20px; font-size: 12px; color: var(--text-muted);">Last updated: March 2026</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            Made with 🌱 by <span>No Time to Forget</span><
